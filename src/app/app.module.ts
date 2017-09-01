@@ -4,8 +4,9 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {CoreModule} from "./core/core.module";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CoreModule} from './modules/core/core.module';
+import {NgRedux, NgReduxModule} from '@angular-redux/store';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import {CoreModule} from "./core/core.module";
         BrowserModule,
         FormsModule,
         HttpModule,
+        NgReduxModule,
         NgbModule.forRoot(),
         CoreModule
     ],
