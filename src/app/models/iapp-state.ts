@@ -1,3 +1,3 @@
 export interface IAppState {
-    event: Event;
+    event?: Event;
 }

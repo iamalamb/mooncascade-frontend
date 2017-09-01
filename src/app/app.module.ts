@@ -6,7 +6,11 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CoreModule} from './modules/core/core.module';
-import {NgRedux, NgReduxModule} from '@angular-redux/store';
+import {DevToolsExtension, NgRedux, NgReduxModule} from '@angular-redux/store';
+import {CounterActions} from './app.actions';
+import {IAppState} from './models/iapp-state';
+import {rootReducer} from './app.reducer';
+import {INITIAL_STATE} from './app.store';
 
 @NgModule({
     declarations: [
@@ -20,8 +24,20 @@ import {NgRedux, NgReduxModule} from '@angular-redux/store';
         NgbModule.forRoot(),
         CoreModule
     ],
-    providers: [],
+    providers: [CounterActions],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+
+    constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
+
+        const storeEnhancers = devTools.isEnabled() ? [devTools.enhancer()] : [];
+
+        ngRedux.configureStore(
+            rootReducer,
+            INITIAL_STATE,
+            [],
+            storeEnhancers
+        );
+    }
 }
