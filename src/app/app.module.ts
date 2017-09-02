@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CoreModule} from './modules/core/core.module';
 import {DevToolsExtension, NgRedux, NgReduxModule} from '@angular-redux/store';
-import {CounterActions} from './app.actions';
+import {AppActions} from './app.actions';
 import {IAppState} from './models/iapp-state';
 import {rootReducer} from './app.reducer';
 import {INITIAL_STATE} from './app.store';
@@ -24,7 +24,7 @@ import {INITIAL_STATE} from './app.store';
         NgbModule.forRoot(),
         CoreModule
     ],
-    providers: [CounterActions],
+    providers: [AppActions],
     bootstrap: [AppComponent]
 })
 export class AppModule {
