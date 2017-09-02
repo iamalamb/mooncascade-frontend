@@ -11,6 +11,7 @@ import {AppActions} from './app.actions';
 import {IAppState} from './models/iapp-state';
 import {rootReducer} from './app.reducer';
 import {INITIAL_STATE} from './app.store';
+import {MooncascadeEventModule} from './modules/mooncascade-event/mooncascade-event.module';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {INITIAL_STATE} from './app.store';
         HttpModule,
         NgReduxModule,
         NgbModule.forRoot(),
-        CoreModule
+        CoreModule,
+        MooncascadeEventModule
     ],
     providers: [AppActions],
     bootstrap: [AppComponent]
