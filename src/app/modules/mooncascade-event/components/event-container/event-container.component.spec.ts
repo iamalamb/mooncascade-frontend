@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {EventContainerComponent} from './event-container.component';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('EventContainerComponent', () => {
     let component: EventContainerComponent;
@@ -10,7 +11,8 @@ describe('EventContainerComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [EventContainerComponent]
+            declarations: [EventContainerComponent],
+            schemas: [NO_ERRORS_SCHEMA]
         })
             .compileComponents();
     }));
@@ -18,9 +20,9 @@ describe('EventContainerComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(EventContainerComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
         element = fixture.nativeElement;
         de = fixture.debugElement;
+        fixture.detectChanges();
     });
 
     it('should create', () => {
