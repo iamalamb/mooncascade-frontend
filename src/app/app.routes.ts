@@ -5,10 +5,16 @@ import {NotFoundComponent} from './modules/errors/not-found/not-found.component'
 export const appRoutes: Routes = [
     {
         path: '',
-        component: EventContainerComponent
+        component: EventContainerComponent,
+        pathMatch: 'full'
+    },
+    {
+        path: 'not-found',
+        component: NotFoundComponent,
+        pathMatch: 'full'
     },
     {
         path: '**',
-        component: NotFoundComponent
+        redirectTo: 'not-found'
     }
 ];

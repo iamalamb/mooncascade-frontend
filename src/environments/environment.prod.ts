@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+    production: true,
+    app_name: 'Mooncascade Event'
 };
