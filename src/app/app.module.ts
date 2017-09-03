@@ -12,6 +12,9 @@ import {IAppState} from './models/iapp-state';
 import {rootReducer} from './app.reducer';
 import {INITIAL_STATE} from './app.store';
 import {MooncascadeEventModule} from './modules/mooncascade-event/mooncascade-event.module';
+import {ErrorsModule} from './modules/errors/errors.module';
+import {RouterModule} from '@angular/router';
+import {appRoutes} from './app.routes';
 
 @NgModule({
     declarations: [
@@ -21,9 +24,11 @@ import {MooncascadeEventModule} from './modules/mooncascade-event/mooncascade-ev
         BrowserModule,
         FormsModule,
         HttpModule,
+        RouterModule.forRoot(appRoutes),
         NgReduxModule,
         NgbModule.forRoot(),
         CoreModule,
+        ErrorsModule,
         MooncascadeEventModule
     ],
     providers: [AppActions],
