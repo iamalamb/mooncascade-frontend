@@ -5,6 +5,11 @@ import {NotFoundComponent} from './modules/errors/not-found/not-found.component'
 export const appRoutes: Routes = [
     {
         path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+    },
+    {
+        path: 'dashboard',
         component: EventContainerComponent,
         pathMatch: 'full'
     },
