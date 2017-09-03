@@ -1,11 +1,11 @@
 import {EventDetails} from './event-details';
 import {Notification} from './notification';
-import {Langage} from './langage';
+import {Language} from './language';
 
 export interface IAppState {
     languages: {
-        available?: Langage[]
-        current?: Langage
+        available?: Language[]
+        current?: Language
     },
     notifications?: Notification[];
     event?: EventDetails;

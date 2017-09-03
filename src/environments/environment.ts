@@ -6,19 +6,20 @@
 export const environment = {
     production: false,
     app_name: 'Mooncascade Event',
+    default_locale: 'en',
     languages: {
         available: [
             {
                 code: 'en',
                 name: 'English',
                 icon: '/assets/icons/png/gb.png',
-                default: true
+                is_default: true
             },
             {
                 code: 'et',
                 name: 'Estonian',
                 icon: '/assets/icons/png/ee.png',
-                default: false
+                is_default: false
             }
         ]
     }

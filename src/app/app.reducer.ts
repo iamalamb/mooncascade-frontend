@@ -10,7 +10,7 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             newState = state;
             newState.languages.available = action.payload;
             return tassign(state, newState);
-        case AppActions.LANGUAGE_SWITCHED:
+        case AppActions.LANGUAGE_CHANGED:
             newState = state;
             newState.languages.current = action.payload;
             return tassign(state, newState);

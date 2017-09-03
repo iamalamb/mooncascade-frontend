@@ -1,6 +1,6 @@
-export interface Langage {
+export interface Language {
     code: string;
     name: string;
     icon: string;
-    default: boolean;
+    is_default: boolean;
 }
