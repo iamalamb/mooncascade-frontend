@@ -3,6 +3,7 @@ import {NgRedux} from '@angular-redux/store';
 import {IAppState} from '../../../models/iapp-state';
 import {Notification} from '../../../models/notification';
 import {AppActions} from '../../../app.actions';
+import {UUID} from 'angular2-uuid';
 
 @Injectable()
 export class NotificationService {
@@ -10,10 +11,13 @@ export class NotificationService {
     constructor(private ngRedux: NgRedux<IAppState>, private actions: AppActions) {
     }
 
-    public add(type: string, title: string, message: string): void {
+    public add(type: string, title: string, message: string): Notification {
+
+        const id: string = UUID.UUID();
 
         // Generate the notification
         const notification: Notification = {
+            id: id,
             type: type,
             title: title,
             message: message
@@ -21,6 +25,9 @@ export class NotificationService {
 
         // Dispatch to redux
         this.ngRedux.dispatch(this.actions.notificationAdd(notification));
+
+        // Return the notification
+        return notification;
     }
 
     public deleteAll(): void {

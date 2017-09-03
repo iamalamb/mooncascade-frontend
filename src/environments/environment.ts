@@ -5,5 +5,21 @@
 
 export const environment = {
     production: false,
-    app_name: 'Mooncascade Event'
+    app_name: 'Mooncascade Event',
+    languages: {
+        available: [
+            {
+                code: 'en',
+                name: 'English',
+                icon: '/assets/icons/png/gb.png',
+                default: true
+            },
+            {
+                code: 'et',
+                name: 'Estonian',
+                icon: '/assets/icons/png/ee.png',
+                default: false
+            }
+        ]
+    }
 };

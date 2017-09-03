@@ -5,6 +5,9 @@ import {MockNgRedux, NgReduxTestingModule} from '@angular-redux/store/lib/testin
 import {Notification} from '../../../models/notification';
 
 describe('NotificationService', () => {
+
+    let service: NotificationService;
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [NgReduxTestingModule],
@@ -14,7 +17,11 @@ describe('NotificationService', () => {
         MockNgRedux.reset();
     });
 
-    it('should dispatch NOTIFICATION_ADD when add is provided', inject([NotificationService], (service: NotificationService) => {
+    beforeEach(inject([NotificationService], s => {
+        service = s;
+    }));
+
+    it('should dispatch NOTIFICATION_ADD when add is called', () => {
 
         const spy = spyOn(MockNgRedux.getInstance(), 'dispatch');
 
@@ -22,21 +29,15 @@ describe('NotificationService', () => {
         const title = 'Test title';
         const message = 'Test message';
 
-        const notification: Notification = {
-            type: type,
-            title: title,
-            message: message
-        }
-
-        service.add(type, title, message);
+        const notification: Notification = service.add(type, title, message);
         expect(spy).toHaveBeenCalledWith({type: AppActions.NOTIFICATION_ADD, payload: notification});
-    }));
+    });
 
-    it('should dispatch NOTIFICATION_DELETE_ALL when deleteAll is provided', inject([NotificationService], (service: NotificationService) => {
+    it('should dispatch NOTIFICATION_DELETE_ALL when deleteAll is called', () => {
 
         const spy = spyOn(MockNgRedux.getInstance(), 'dispatch');
 
         service.deleteAll();
         expect(spy).toHaveBeenCalledWith({type: AppActions.NOTIFICATION_DELETE_ALL});
-    }));
+    });
 });

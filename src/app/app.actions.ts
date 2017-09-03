@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Action, AnyAction} from 'redux';
 import {Notification} from './models/notification';
+import {Langage} from './models/langage';
 
 @Injectable()
 export class AppActions {
+
+    // Language/Locale actions
+    static LANGUAGE_INIT = 'LANGUAGE_INIT';
+    static LANGUAGE_SWITCHED = 'LANGUAGE_SWITCHED';
 
     // Notification actions
     static NOTIFICATION_ADD = 'NOTIFICATION_ADD';
@@ -16,6 +21,14 @@ export class AppActions {
 
     // Athlete actions
     static ATHLETE_INFO_RECEIVED = 'ATHLETE_INFO_RECEIVED';
+
+    languageInit(languages: Langage[]): AnyAction {
+        return {type: AppActions.LANGUAGE_INIT, payload: languages};
+    }
+
+    languageSwitched(language: Langage): AnyAction {
+        return {type: AppActions.LANGUAGE_SWITCHED, payload: language};
+    }
 
     notificationAdd(notification: Notification): AnyAction {
         return {type: AppActions.NOTIFICATION_ADD, payload: notification};
