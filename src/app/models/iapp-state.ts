@@ -1,3 +1,7 @@
+import {EventDetails} from './event-details';
+import {Notification} from './notification';
+
 export interface IAppState {
-    event?: Event;
+    notifications?: Notification[];
+    event?: EventDetails;
 }

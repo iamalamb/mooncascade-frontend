@@ -1,6 +1,6 @@
 import {Athlete} from './athlete';
 
-export interface Event {
+export interface EventDetails{
     running: boolean;
     startedAt?: number;
     completedAt?: number;
