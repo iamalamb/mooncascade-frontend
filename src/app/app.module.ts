@@ -15,6 +15,9 @@ import {MooncascadeEventModule} from './modules/mooncascade-event/mooncascade-ev
 import {ErrorsModule} from './modules/errors/errors.module';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AuthModule} from './modules/auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -28,8 +31,10 @@ import {appRoutes} from './app.routes';
         NgReduxModule,
         NgbModule.forRoot(),
         CoreModule,
+        AuthModule,
         ErrorsModule,
-        MooncascadeEventModule
+        MooncascadeEventModule,
+        AngularFireModule.initializeApp(environment.firebase)
     ],
     providers: [AppActions],
     bootstrap: [AppComponent]

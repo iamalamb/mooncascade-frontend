@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SubscriptionService} from '../../../core/services/subscription.service';
 
 @Component({
     selector: 'app-event-container',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class EventContainerComponent implements OnInit {
 
-    constructor() {
+    constructor(private subscriptionService: SubscriptionService) {
     }
 
     ngOnInit() {

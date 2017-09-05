@@ -5,6 +5,7 @@ import {NotificationListComponent} from './components/notification-list/notifica
 import {NotificationService} from './services/notification.service';
 import {NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import { NotificationListItemComponent } from './components/notification-list-item/notification-list-item.component';
+import {SubscriptionService} from './services/subscription.service';
 
 @NgModule({
     imports: [
@@ -17,7 +18,7 @@ import { NotificationListItemComponent } from './components/notification-list-it
         NotificationListItemComponent
     ],
     declarations: [NavbarComponent, NotificationListComponent, NotificationListItemComponent],
-    providers: [NotificationService]
+    providers: [NotificationService, SubscriptionService]
 })
 export class CoreModule {
 }

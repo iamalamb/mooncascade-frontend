@@ -1,0 +1,6 @@
+$background-image: '/assets/backgrounds/pexels-photo-421160.jpeg';
+
+#auth-login-contianer {
+  background: url($background-image) no-repeat center center fixed;
+  background-size: cover;
+}
