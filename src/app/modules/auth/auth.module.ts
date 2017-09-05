@@ -1,15 +1,16 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {LoginComponent} from './components/login/login.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import {NgbPopoverModule} from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
-        NgbPopoverModule
+        NgbPopoverModule,
+        FormsModule
     ],
-    declarations: [LoginComponent, LoginFormComponent],
+    declarations: [LoginComponent],
     exports: [LoginComponent]
 })
 export class AuthModule {
