@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Action, AnyAction} from 'redux';
 import {Notification} from './models/notification';
 import {Language} from './models/language';
+import {UrlSerializer} from '@angular/router';
+import {FirebaseApp} from 'angularfire2';
 
 @Injectable()
 export class AppActions {

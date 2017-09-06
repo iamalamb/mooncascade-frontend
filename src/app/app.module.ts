@@ -17,7 +17,6 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
-import {AuthModule} from './modules/auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -31,7 +30,6 @@ import {AuthModule} from './modules/auth/auth.module';
         NgReduxModule,
         NgbModule.forRoot(),
         CoreModule,
-        AuthModule,
         ErrorsModule,
         MooncascadeEventModule,
         AngularFireModule.initializeApp(environment.firebase)
