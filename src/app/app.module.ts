@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, APP_INITIALIZER} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
@@ -17,6 +17,11 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './app.routes';
 import {AngularFireModule} from 'angularfire2';
 import {environment} from '../environments/environment';
+import {AppConfig} from './app.config';
+
+export function initConfig(config: AppConfig) {
+    return () => config.init();
+}
 
 @NgModule({
     declarations: [
@@ -34,7 +39,12 @@ import {environment} from '../environments/environment';
         MooncascadeEventModule,
         AngularFireModule.initializeApp(environment.firebase)
     ],
-    providers: [AppActions],
+    providers: [
+        AppActions,
+        AppConfig,
+        {provide: APP_INITIALIZER, useFactory: initConfig, deps: [AppConfig], multi: true},
+
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

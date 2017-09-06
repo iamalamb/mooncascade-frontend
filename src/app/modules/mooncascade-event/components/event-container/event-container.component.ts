@@ -12,6 +12,8 @@ export class EventContainerComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.subscriptionService.init();
+        this.subscriptionService.initMessaging();
     }
 
 }

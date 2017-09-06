@@ -28,5 +28,6 @@ export const environment = {
         databaseURL: 'https://alt-project-eacc3.firebaseio.com/',
         storageBucket: 'gs://alt-project-eacc3.appspot.com',
         messagingSenderId: '964218083224'
-    }
+    },
+    api_base_url: 'http://jlamb.mooncascade.com/api'
 };
