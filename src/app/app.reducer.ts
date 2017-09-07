@@ -6,14 +6,6 @@ import {AnyAction} from 'redux';
 export function rootReducer(state: IAppState, action: AnyAction): IAppState {
     let newState: IAppState;
     switch (action.type) {
-        case AppActions.LANGUAGE_INIT:
-            newState = state;
-            newState.languages.available = action.payload;
-            return tassign(state, newState);
-        case AppActions.LANGUAGE_CHANGED:
-            newState = state;
-            newState.languages.current = action.payload;
-            return tassign(state, newState);
         case AppActions.NOTIFICATION_ADD:
             newState = state;
             newState.notifications.push(action.payload);
@@ -22,12 +14,10 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             newState = state;
             newState.notifications = [];
             return tassign(state, newState);
-        case AppActions.EVENT_DELAYED:
-            return state;
-        case AppActions.EVENT_STARTED:
-            return state;
-        case AppActions.EVENT_FINISHED:
-            return state;
+        case AppActions.ATHLETE_INFO_RECEIVED:
+            newState = state;
+            newState.athletes.push(action.payload);
+            return tassign(state, newState);
         default:
             return state;
     }

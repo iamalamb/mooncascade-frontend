@@ -4,6 +4,9 @@ import {FirebaseApp} from 'angularfire2';
 import {NotificationService} from './notification.service';
 import {Http} from '@angular/http';
 import {environment} from '../../../../environments/environment';
+import {NgRedux} from '@angular-redux/store';
+import {IAppState} from '../../../models/iapp-state';
+import {AppActions} from '../../../app.actions';
 
 @Injectable()
 export class SubscriptionService {
@@ -11,7 +14,10 @@ export class SubscriptionService {
     private baseUrl: string = environment.api_base_url;
     private messaging: firebase.messaging.Messaging;
 
-    constructor(@Inject(FirebaseApp) private firebaseApp: firebase.app.App, private notificationService: NotificationService, private http: Http) {
+    constructor(@Inject(FirebaseApp) private firebaseApp: firebase.app.App,
+                private notificationService: NotificationService,
+                private http: Http, private ngRedux: NgRedux<IAppState>,
+                private actions: AppActions) {
     }
 
     public init(): void {
@@ -74,8 +80,19 @@ export class SubscriptionService {
 
     public initMessaging(): void {
         this.messaging.onMessage((payload) => {
-            console.log('Message received');
             console.log(payload);
+            switch (payload['data']['event']) {
+                case 'event-start':
+                    this.notificationService.add('info', 'Event Started', 'The event has officially started. Athletes should be coming through shortly.');
+                    break;
+                case 'event-completed':
+                    this.notificationService.add('info', 'Event Completed', 'The event has officially ended. There are no more athletes to process.');
+                    break;
+                case 'athlete-event':
+                    const athlete = payload['data']['entity'];
+                    this.ngRedux.dispatch(this.actions.athleteInfoReceieved(athlete));
+                    break;
+            }
         });
     }
 }

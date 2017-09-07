@@ -6,22 +6,6 @@
 export const environment = {
     production: false,
     app_name: 'Mooncascade Event',
-    languages: {
-        available: [
-            {
-                code: 'en',
-                name: 'English',
-                icon: '/assets/icons/png/gb.png',
-                is_default: true
-            },
-            {
-                code: 'et',
-                name: 'Estonian',
-                icon: '/assets/icons/png/ee.png',
-                is_default: false
-            }
-        ]
-    },
     firebase: {
         apiKey: 'AIzaSyCbWPdhXVTKG_ChU-gl1-yzg5SJQf1eR3k',
         authDomain: 'alt-project-eacc3.firebaseapp.com',

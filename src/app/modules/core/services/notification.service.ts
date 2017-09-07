@@ -13,6 +13,8 @@ export class NotificationService {
 
     public add(type: string, title: string, message: string): Notification {
 
+        this.deleteAll();
+
         const id: string = UUID.UUID();
 
         // Generate the notification
