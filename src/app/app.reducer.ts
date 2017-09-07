@@ -2,6 +2,7 @@ import {IAppState} from './models/iapp-state';
 import {AppActions} from './app.actions';
 import {tassign} from 'tassign';
 import {AnyAction} from 'redux';
+import collection from 'lodash/collection';
 
 export function rootReducer(state: IAppState, action: AnyAction): IAppState {
     let newState: IAppState;
@@ -16,7 +17,9 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             return tassign(state, newState);
         case AppActions.ATHLETE_INFO_RECEIVED:
             newState = state;
+            newState.athletes = newState.athletes.filter(athlete => athlete.code !== action.payload.code);
             newState.athletes.push(action.payload);
+            newState.athletes = collection.orderBy(newState.athletes, ['timeAtFinish', 'timeAtGate'], ['asc']);
             return tassign(state, newState);
         default:
             return state;

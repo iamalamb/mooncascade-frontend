@@ -89,7 +89,7 @@ export class SubscriptionService {
                     this.notificationService.add('info', 'Event Completed', 'The event has officially ended. There are no more athletes to process.');
                     break;
                 case 'athlete-event':
-                    const athlete = payload['data']['entity'];
+                    const athlete = JSON.parse(payload['data']['entity']);
                     this.ngRedux.dispatch(this.actions.athleteInfoReceieved(athlete));
                     break;
             }
