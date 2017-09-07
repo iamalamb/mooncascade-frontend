@@ -1,5 +1,7 @@
+// Variable declarations
 $background-image: '/assets/backgrounds/spot-runs-start-la.jpg';
 
+// Sets up the background for the not-found page
 #not-found-container {
   background: url($background-image) no-repeat center center fixed;
   background-size: cover;

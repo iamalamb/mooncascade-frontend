@@ -8,7 +8,7 @@ import {select} from '@angular-redux/store';
 })
 export class NotificationListComponent implements OnInit {
 
-    // Select a list of notications from redux
+    // Observable list of of Notifications stored in Redux
     @select(['notifications']) notifications$;
 
     constructor() {

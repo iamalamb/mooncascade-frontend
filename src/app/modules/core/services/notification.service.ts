@@ -11,6 +11,7 @@ export class NotificationService {
     constructor(private ngRedux: NgRedux<IAppState>, private actions: AppActions) {
     }
 
+    // Adds a new notification to Redux
     public add(type: string, title: string, message: string): Notification {
 
         this.deleteAll();
@@ -32,6 +33,7 @@ export class NotificationService {
         return notification;
     }
 
+    // Purges ALL notifcations from Redux
     public deleteAll(): void {
         this.ngRedux.dispatch(this.actions.notificationDeleteAll());
     }

@@ -4,14 +4,12 @@ import {NotificationListComponent} from './notification-list.component';
 import {NotificationService} from '../../services/notification.service';
 import {AppActions} from '../../../../app.actions';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {isNullOrUndefined} from 'util';
 import {NgReduxTestingModule} from '@angular-redux/store/lib/testing';
 
 describe('NotificationListComponent', () => {
     let component: NotificationListComponent;
     let fixture: ComponentFixture<NotificationListComponent>;
     let service: NotificationService;
-    let notifications;
     let element;
     let de;
 

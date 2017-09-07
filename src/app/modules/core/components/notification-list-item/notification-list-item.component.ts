@@ -8,6 +8,7 @@ import {Notification} from '../../../../models/notification';
 })
 export class NotificationListItemComponent implements OnInit {
 
+    // The notification to display
     @Input() notification: Notification;
 
     constructor() {

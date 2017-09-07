@@ -43,6 +43,7 @@ export class AppModule {
 
     constructor(ngRedux: NgRedux<IAppState>, devTools: DevToolsExtension) {
 
+        // Sets up Redux
         const storeEnhancers = devTools.isEnabled() ? [devTools.enhancer()] : [];
 
         ngRedux.configureStore(

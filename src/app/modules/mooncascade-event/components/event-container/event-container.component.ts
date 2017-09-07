@@ -9,13 +9,16 @@ import {select} from '@angular-redux/store';
 })
 export class EventContainerComponent implements OnInit {
 
+    // Subscribes to a Redux observable list of Athletes
     @select('athletes') athletes$;
 
     constructor(private subscriptionService: SubscriptionService) {
     }
 
     ngOnInit() {
+        // Initialise the subscription service function
         this.subscriptionService.init();
+        // Once done, subscrible to messaging
         this.subscriptionService.initMessaging();
     }
 

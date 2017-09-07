@@ -11,7 +11,9 @@ import {AppActions} from '../../../app.actions';
 @Injectable()
 export class SubscriptionService {
 
+    // Base URL for all API requests
     private baseUrl: string = environment.api_base_url;
+    // Sets up Firebase messaging
     private messaging: firebase.messaging.Messaging;
 
     constructor(@Inject(FirebaseApp) private firebaseApp: firebase.app.App,
@@ -20,6 +22,11 @@ export class SubscriptionService {
                 private actions: AppActions) {
     }
 
+    /*
+     * Init function. Performs the following:
+     * 1) Attempts to sign into Firebase using anon authentication (In a real-world scenario this would be very different)
+     * 2) Once authenticated attempt to subscribe the user.
+     */
     public init(): void {
 
         this.messaging = firebase.messaging(this.firebaseApp);
@@ -37,6 +44,12 @@ export class SubscriptionService {
         });
     }
 
+    /*
+     * Performs the following:
+     * 1) Attempts to request permission to display notifications
+     * 2) Returns a token from Firebase
+     * 3) Attempts to register the user with the API
+     */
     public subscribeUser(): void {
 
         this.messaging.requestPermission()
@@ -56,6 +69,10 @@ export class SubscriptionService {
             });
     }
 
+    /*
+     * Performs the following:
+     * 1) Attempts to register the user token provided by Firebase with the API
+     */
     public registerUser(token: string): void {
 
         const payload = {
@@ -78,6 +95,10 @@ export class SubscriptionService {
         );
     }
 
+    /*
+     * Performs the following:
+     * 1) Handles messages provided by Firebase
+     */
     public initMessaging(): void {
         this.messaging.onMessage((payload) => {
             console.log(payload);
