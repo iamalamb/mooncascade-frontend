@@ -23,9 +23,4 @@ export class EventContainerComponent implements OnInit {
         // Once done, subscrible to messaging
         this.subscriptionService.initMessaging();
     }
-
-    // Handle the clicking of a notification close icon
-    handleOnClose(id: string): void {
-        this.ngRedux.dispatch(this.actions.notificationDeleteItem(id))
-    }
 }
