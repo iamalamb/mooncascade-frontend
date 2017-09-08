@@ -1,5 +1,11 @@
-$margin-top: 150px;
+// Variable declarations
+$margin-top: 20vh;
+$table-max-height: 75vh;
 
 #mooncascade-event-container {
-  margin-top: $margin-top;
+  padding-top: $margin-top;
+}
+
+#mooncascade-event-table tbody {
+  max-height: $table-max-height;
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SubscriptionService} from '../../../core/services/subscription.service';
-import {select} from '@angular-redux/store';
+import {NgRedux, select} from '@angular-redux/store';
+import {IAppState} from '../../../../models/iapp-state';
+import {AppActions} from '../../../../app.actions';
 
 @Component({
     selector: 'app-event-container',
@@ -12,7 +14,7 @@ export class EventContainerComponent implements OnInit {
     // Subscribes to a Redux observable list of Athletes
     @select('athletes') athletes$;
 
-    constructor(private subscriptionService: SubscriptionService) {
+    constructor(private subscriptionService: SubscriptionService, private ngRedux: NgRedux<IAppState>, private actions: AppActions) {
     }
 
     ngOnInit() {
@@ -22,4 +24,8 @@ export class EventContainerComponent implements OnInit {
         this.subscriptionService.initMessaging();
     }
 
+    // Handle the clicking of a notification close icon
+    handleOnClose(id: string): void {
+        this.ngRedux.dispatch(this.actions.notificationDeleteItem(id))
+    }
 }

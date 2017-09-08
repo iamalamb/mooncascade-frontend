@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Notification} from '../../../../models/notification';
 
 @Component({
@@ -11,10 +11,17 @@ export class NotificationListItemComponent implements OnInit {
     // The notification to display
     @Input() notification: Notification;
 
+    // Event to dispatch when notification is closed
+    @Output() closeNotificationEvent: EventEmitter<string> = new EventEmitter();
+
     constructor() {
     }
 
     ngOnInit() {
     }
 
+    // Handle the clicking of a notification close icon
+    handleOnClose(id: string): void {
+        this.closeNotificationEvent.emit(id);
+    }
 }

@@ -7,10 +7,23 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="manifest" href="/manifest.json">
 </head>
 <body class="h-100">
-<app-root class="h-100">Loading...</app-root>
+<app-root class="h-100">
+    <div class="w-100 h-100 vertical-align-container" id="not-found-container">
+        <div class="w-70 h-100 mx-auto align-middle vertical-align-inner-container">
+            <span class="align-middle vertical-align-content">
+              <div class="jumbotron">
+                  <h1 class="display-1">404 - Not Found</h1>
+                  <p class="lead">Oh no! The page or content you requested could not be found.</p>
+                  <a [routerLink]="['']" class="btn btn-primary btn-lg">Back to the home page</a>
+              </div>
+            </span>
+        </div>
+    </div>
+</app-root>
 </body>
 </html>

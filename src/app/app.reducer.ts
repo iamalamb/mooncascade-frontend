@@ -15,6 +15,11 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             newState = state;
             newState.notifications = [];
             return tassign(state, newState);
+        case AppActions.NOTIFICATION_DELETE_ITEM:
+            newState = state;
+            console.log(action.payload);
+            newState.notifications = newState.notifications.filter(notification => notification.id !== action.payload);
+            return tassign(state, newState);
         case AppActions.ATHLETE_INFO_RECEIVED:
             newState = state;
             newState.athletes = newState.athletes.filter(athlete => athlete.code !== action.payload.code);

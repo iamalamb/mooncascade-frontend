@@ -9,6 +9,7 @@ export class AppActions {
     // Notification actions
     static NOTIFICATION_ADD = 'NOTIFICATION_ADD';
     static NOTIFICATION_DELETE_ALL = 'NOTIFICATION_DELETE_ALL';
+    static NOTIFICATION_DELETE_ITEM = 'NOTIFICATION_DELETE_ITEM';
 
     // Athlete actions
     static ATHLETE_INFO_RECEIVED = 'ATHLETE_INFO_RECEIVED';
@@ -19,6 +20,10 @@ export class AppActions {
 
     notificationDeleteAll(): AnyAction {
         return {type: AppActions.NOTIFICATION_DELETE_ALL};
+    }
+
+    notificationDeleteItem(id: string): AnyAction {
+        return {type: AppActions.NOTIFICATION_DELETE_ITEM, payload: id};
     }
 
     athleteInfoReceieved(athlete: Athlete): AnyAction {
