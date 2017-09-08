@@ -1,3 +1,5 @@
+$background-image: '/assets/backgrounds/pexels-photo-421160.jpeg';
+$logo-height: 250px;
 .vertical-align-container {
 
   .vertical-align-inner-container {
@@ -8,5 +10,15 @@
       display: table-cell;
     }
 
+  }
+}
+
+#loading-container {
+  background: url($background-image) no-repeat center center fixed;
+  background-size: cover;
+
+
+  #mc-logo-large {
+    height: $logo-height;
   }
 }
