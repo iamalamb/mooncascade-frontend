@@ -7,11 +7,11 @@ export const environment = {
     production: false,
     app_name: 'Mooncascade Event',
     firebase: {
-        apiKey: 'AIzaSyCbWPdhXVTKG_ChU-gl1-yzg5SJQf1eR3k',
-        authDomain: 'alt-project-eacc3.firebaseapp.com',
-        databaseURL: 'https://alt-project-eacc3.firebaseio.com/',
-        storageBucket: 'gs://alt-project-eacc3.appspot.com',
-        messagingSenderId: '964218083224'
+        apiKey: '',
+        authDomain: '',
+        databaseURL: '',
+        storageBucket: '',
+        messagingSenderId: ''
     },
     api_base_url: 'http://jlamb.mooncascade.com/api'
 };
