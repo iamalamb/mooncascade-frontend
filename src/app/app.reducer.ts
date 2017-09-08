@@ -24,7 +24,7 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             newState.athletes = newState.athletes.filter(athlete => athlete.code !== action.payload.code);
             newState.athletes.push(action.payload);
             newState.athletes = collection.orderBy(newState.athletes, ['timeAtFinish', 'timeAtGate'], ['asc']);
-            newState.athletes = newState.athletes.slice(0, 10);
+            newState.athletes = newState.athletes.slice(-10);
             return tassign(state, newState);
         default:
             return state;
