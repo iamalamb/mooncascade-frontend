@@ -5,6 +5,6 @@
 export interface Base {
     id: number;
     name: string;
-    createdAt?: number;
-    updatedAt?: number;
+    created_at?: number;
+    updated_at?: number;
 }

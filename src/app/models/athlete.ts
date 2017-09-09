@@ -7,7 +7,7 @@ import {AthleteAssociation} from './athlete-association';
  */
 export interface Athlete extends Base {
     code: string;
-    startNumber: string;
+    start_number: string;
     gender?: AthleteAssociation;
     team?: AthleteAssociation;
 }
