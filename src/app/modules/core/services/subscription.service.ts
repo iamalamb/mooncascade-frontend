@@ -112,6 +112,7 @@ export class SubscriptionService {
                 case 'athlete-event':
                     const athlete = JSON.parse(payload['data']['entity']);
                     this.ngRedux.dispatch(this.actions.athleteInfoReceieved(athlete));
+                    this.notificationService.deleteAll();
                     break;
             }
         });

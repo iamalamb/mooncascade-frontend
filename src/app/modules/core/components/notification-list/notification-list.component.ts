@@ -1,5 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {select} from '@angular-redux/store';
+import {Component, OnInit} from '@angular/core';
+import {NgRedux, select} from '@angular-redux/store';
+import {IAppState} from '../../../../models/iapp-state';
+import {AppActions} from '../../../../app.actions';
 
 @Component({
     selector: 'app-notification-list',
@@ -11,10 +13,7 @@ export class NotificationListComponent implements OnInit {
     // Observable list of of Notifications stored in Redux
     @select(['notifications']) notifications$;
 
-    // Event to dispatch when notification is closed
-    @Output() closeNotificationEvent: EventEmitter<string> = new EventEmitter();
-
-    constructor() {
+    constructor(private ngRedux: NgRedux<IAppState>, private actions: AppActions) {
     }
 
     ngOnInit() {
@@ -22,6 +21,6 @@ export class NotificationListComponent implements OnInit {
 
     // Handle the clicking of a notification close icon
     handleOnClose(id: string): void {
-        this.closeNotificationEvent.emit(id);
+        this.ngRedux.dispatch(this.actions.notificationDeleteItem(id));
     }
 }

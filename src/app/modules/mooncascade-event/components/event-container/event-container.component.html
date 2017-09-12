@@ -9,8 +9,8 @@
                     <th>Code</th>
                     <th>Name</th>
                     <th class="text-center" width="50">#</th>
-                    <th class="text-right" width="250">Gate Time</th>
-                    <th class="text-right" width="250">Finish Time</th>
+                    <th class="text-right" width="200">Gate Time</th>
+                    <th class="text-right" width="200">Finish Time</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,17 +27,17 @@
                     </td>
                     <td class="text-center">
                         <small>
-                            {{ athlete.start_name }}
+                            {{ athlete.start_number }}
                         </small>
                     </td>
                     <td class="text-right">
-                        <small>
-                            {{ athlete.time_at_gate }}
+                        <small *ngIf="athlete.time_at_gate">
+                            {{ athlete.time_at_gate | amFromUnix | amDateFormat:'YYYY-MM-DD HH:mm:ss.SSS'}}
                         </small>
                     </td>
                     <td class="text-right">
-                        <small>
-                            {{athlete.time_at_finish}}
+                        <small *ngIf="athlete.time_at_finish">
+                            {{athlete.time_at_finish | amFromUnix | amDateFormat:'YYYY-MM-DD HH:mm:ss.SSS'}}
                         </small>
                     </td>
                 </tr>
@@ -47,8 +47,8 @@
                     <th>Code</th>
                     <th>Name</th>
                     <th class="text-center" width="50">#</th>
-                    <th class="text-right" width="250">Gate Time</th>
-                    <th class="text-right" width="250">Finish Time</th>
+                    <th class="text-right" width="200">Gate Time</th>
+                    <th class="text-right" width="200">Finish Time</th>
                 </tr>
                 </tfoot>
             </table>
