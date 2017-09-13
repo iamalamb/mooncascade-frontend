@@ -86,6 +86,8 @@ export class SubscriptionService {
 
                 const message = 'You have been successfully registered for the event with the API!';
                 this.notificationService.add('success', 'Success', message);
+
+                this.ngRedux.dispatch(this.actions.eventRegistered());
             },
             (error) => {
                 const message = 'There was an error attempting to register you with the API. Please check the console for more information.';
@@ -105,9 +107,11 @@ export class SubscriptionService {
             switch (payload['data']['event']) {
                 case 'event-start':
                     this.notificationService.add('info', 'Event Started', 'The event has officially started. Athletes should be coming through shortly.');
+                    this.ngRedux.dispatch(this.actions.eventStarted());
                     break;
                 case 'event-completed':
                     this.notificationService.add('info', 'Event Completed', 'The event has officially ended. There are no more athletes to process.');
+                    this.ngRedux.dispatch(this.actions.eventCompleted());
                     break;
                 case 'athlete-event':
                     const athlete = JSON.parse(payload['data']['entity']);

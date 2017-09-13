@@ -1,8 +1,5 @@
-import {Athlete} from './athlete';
-
 export interface EventDetails{
+    registered: boolean;
     running: boolean;
-    startedAt?: number;
-    completedAt?: number;
-    athletes?: Athlete[];
+    completed: boolean;
 }

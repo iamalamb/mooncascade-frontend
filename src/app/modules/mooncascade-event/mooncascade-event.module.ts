@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {EventContainerComponent} from './components/event-container/event-container.component';
 import {CoreModule} from '../core/core.module';
 import {MomentModule} from 'angular2-moment';
+import {EventTableComponent} from './components/event-table/event-table.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,7 @@ import {MomentModule} from 'angular2-moment';
     exports: [
         EventContainerComponent
     ],
-    declarations: [EventContainerComponent]
+    declarations: [EventContainerComponent, EventTableComponent]
 })
 export class MooncascadeEventModule {
 }

@@ -1,0 +1,50 @@
+<table class="table table-striped table-bordered table-hover table-sm" *ngIf="(athletes$ | async)?.length"
+       id="mooncascade-event-table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th class="text-center" width="50">#</th>
+        <th class="text-right" width="200">Gate Time</th>
+        <th class="text-right" width="200">Finish Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let athlete of athletes$ | async">
+        <td>
+            <small>
+                {{ athlete.code }}
+            </small>
+        </td>
+        <td>
+            <small>
+                {{ athlete.name }}
+            </small>
+        </td>
+        <td class="text-center">
+            <small>
+                {{ athlete.start_number }}
+            </small>
+        </td>
+        <td class="text-right">
+            <small *ngIf="athlete.time_at_gate">
+                {{ athlete.time_at_gate | amFromUnix | amDateFormat:'YYYY-MM-DD HH:mm:ss.SSS'}}
+            </small>
+        </td>
+        <td class="text-right">
+            <small *ngIf="athlete.time_at_finish">
+                {{athlete.time_at_finish | amFromUnix | amDateFormat:'YYYY-MM-DD HH:mm:ss.SSS'}}
+            </small>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot class="thead-inverse">
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th class="text-center" width="50">#</th>
+        <th class="text-right" width="200">Gate Time</th>
+        <th class="text-right" width="200">Finish Time</th>
+    </tr>
+    </tfoot>
+</table>

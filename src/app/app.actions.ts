@@ -11,6 +11,11 @@ export class AppActions {
     static NOTIFICATION_DELETE_ALL = 'NOTIFICATION_DELETE_ALL';
     static NOTIFICATION_DELETE_ITEM = 'NOTIFICATION_DELETE_ITEM';
 
+    // Event actions
+    static EVENT_REGISTERED = 'EVENT_REGISTERED';
+    static EVENT_STARTED = 'EVENT_STARTED';
+    static EVENT_COMPLETED = 'EVENT_COMPLETED';
+
     // Athlete actions
     static ATHLETE_INFO_RECEIVED = 'ATHLETE_INFO_RECEIVED';
 
@@ -24,6 +29,18 @@ export class AppActions {
 
     notificationDeleteItem(id: string): AnyAction {
         return {type: AppActions.NOTIFICATION_DELETE_ITEM, payload: id};
+    }
+
+    eventRegistered(): AnyAction {
+        return {type: AppActions.EVENT_REGISTERED};
+    }
+
+    eventStarted(): AnyAction {
+        return {type: AppActions.EVENT_STARTED};
+    }
+
+    eventCompleted(): AnyAction {
+        return {type: AppActions.EVENT_COMPLETED};
     }
 
     athleteInfoReceieved(athlete: Athlete): AnyAction {

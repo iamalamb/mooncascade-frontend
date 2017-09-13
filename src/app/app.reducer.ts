@@ -19,6 +19,24 @@ export function rootReducer(state: IAppState, action: AnyAction): IAppState {
             newState = state;
             newState.notifications = newState.notifications.filter(notification => notification.id !== action.payload);
             return tassign(state, newState);
+        case AppActions.EVENT_REGISTERED:
+            newState = state;
+            newState.event.registered = true;
+            newState.event.running = false;
+            newState.event.completed = false;
+            return tassign(state, newState);
+        case AppActions.EVENT_STARTED:
+            newState = state;
+            newState.event.registered = true;
+            newState.event.running = true;
+            newState.event.completed = false;
+            return tassign(state, newState);
+        case AppActions.EVENT_COMPLETED:
+            newState = state;
+            newState.event.registered = true;
+            newState.event.running = false;
+            newState.event.completed = true;
+            return tassign(state, newState);
         case AppActions.ATHLETE_INFO_RECEIVED:
             newState = state;
             newState.athletes = newState.athletes.filter(athlete => athlete.code !== action.payload.code);
