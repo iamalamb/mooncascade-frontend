@@ -44,7 +44,6 @@ export class EventContainerComponent implements OnInit {
         const url: string = this.baseUrl + '/event';
         this.http.post(url, {}).subscribe(
             (data) => {
-
                 this.ngRedux.dispatch(this.actions.eventStarted());
             },
             (error) => {
